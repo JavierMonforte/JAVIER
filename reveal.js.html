@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://rafacabeza.github.io/migit/ -->
+<html class=" js no-mobile desktop no-ie chrome chrome94 migit-section gradient rgba opacity textshadow multiplebgs boxshadow borderimage borderradius cssreflections csstransforms csstransitions no-touch retina fontface domloaded w-1229 gt-240 gt-320 gt-480 gt-640 gt-768 gt-800 gt-1024 lt-1280 lt-1440 lt-1680 lt-1920 no-portrait landscape" id="index-page"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="./reveal.js_files/reveal.css">
+		<link rel="stylesheet" href="./reveal.js_files/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="./reveal.js_files/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script><link rel="stylesheet" type="text/css" href="./reveal.js_files/paper.css"><script type="text/javascript" src="./reveal.js_files/marked.js.descarga"></script><script type="text/javascript" src="./reveal.js_files/markdown.js.descarga"></script><script type="text/javascript" src="./reveal.js_files/notes.js.descarga"></script><script type="text/javascript" src="./reveal.js_files/highlight.js.descarga"></script>
+	</head>
+	<body>
+		<div class="reveal slide center has-vertical-slides has-horizontal-slides ready" role="application" data-transition-speed="default" data-background-transition="fade">
+			<div class="slides" style="width: 960px; height: 700px; inset: 50% auto auto 50%; transform: translate(-50%, -50%) scale(0.833829);">
+
+                <section data-charset="utf8" data-markdown="" data-markdown-parsed="true" class="past" style="top: 157px; display: none;" hidden="" aria-hidden="true"><h1 id="control-de-versiones-con-git">Control de versiones con Git</h1>
+<p><a href="https://rafacabeza.github.io/migit/">Ver diapositivas</a></p>
+</section><section data-charset="utf8" class="stack past" style="top: 0px; display: none;" data-previous-indexv="0" hidden="" aria-hidden="true"><section data-markdown="" data-markdown-parsed="true" class="" style="top: 54.5px; display: none;" aria-hidden="true"><h2 id="scv-o-sistema-de-control-de-versiones">SCV o Sistema de Control de versiones</h2>
+<p>Tomado del siguiente <a href="https://git-scm.com/book/es/v2">Manual GIT</a> en <a href="https://git-scm.com/book/es/v2">https://git-scm.com/book/es/v2</a>:</p>
+<p><em>Un control de versiones es un sistema que registra los cambios realizados en un archivo o conjunto de archivos a lo largo del tiempo, 
+de modo que puedas recuperar versiones específicas más adelante.</em></p>
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" hidden="" style="top: 143px; display: none;"><h2 id="scv-centralizados">SCV  centralizados</h2>
+<ul>
+<li>El enfoque tradicional de los SCV es el de un sistema centralizado. </li>
+<li>Es el caso de los muy utilizados CVS O Subversion. </li>
+<li>Esto es fácil de administrar pero obliga a que el servidor siempre esté disponible.</li>
+</ul>
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" hidden="" style="top: 88.5px; display: none;"><h2 id="scv-distribuidos">SCV  distribuidos</h2>
+<ul>
+<li>Git, como Mercurial, Bazaar o Darcs, es un sistema distribuido. </li>
+<li>Los clientes mantienen una copia completa de todo el repositorio.  </li>
+<li>Esto permite hacer cambios sin estar conectados. </li>
+<li>En algún momento deben sincronizarse los clientes y el servidor o serviodres.</li>
+</ul>
+</section></section><section data-charset="utf8" class="stack past" style="top: 0px; display: none;" data-previous-indexv="0" hidden="" aria-hidden="true"><section data-markdown="" data-markdown-parsed="true" class="" style="top: 116px; display: none;" aria-hidden="true"><h2 id="git">Git</h2>
+<ul>
+<li>Linux usaba BitKeeper para su desarrollo pero en 2005 dejó de ofrecer una licencia gratis para el proyecto GNU/Linux.</li>
+<li>Git se creó para sustituir a BitKeeper</li>
+<li>Linus Torvaldas, creador de Linux, desarrolló Git para dar soporte al desarrollo de este SO.</li>
+</ul>
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" hidden="" style="top: 69px; display: none;"><h3 id="las-caracter-sticas-de-git-">Las características de git:</h3>
+<ul>
+<li>Es distribuido</li>
+<li>Sencillo y rápido</li>
+<li>Permite grandes proyectos con mulititud de ramas</li>
+<li>Usa copias completas. Hace copia de los ficheros modificados y enlaces a los no modificados.</li>
+<li>Asegura la integridad. Realiza un hash SHA-1 a cada fichero. Si un fichero es alterado git lo detecta.</li>
+<li>La mayoría de cambios se hacen localmente.</li>
+</ul>
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" hidden="" style="top: 0px; display: none;"><h3 id="esquema-de-almacenamiento">Esquema de almacenamiento</h3>
+<ul>
+<li>Cada instantánea se identifica por un <em>hash</em> SHA1</li>
+<li>Cada instantánea o <em>commit</em> añade los ficheros modificados. Y guarda enlaces al resto.</li>
+</ul>
+<p><img src="./reveal.js_files/gitHistory.png" alt=""></p>
+</section></section><section data-charset="utf8" class="stack past" style="top: 0px; display: none;" data-previous-indexv="0" hidden="" aria-hidden="true"><section data-markdown="" data-markdown-parsed="true" class="" style="top: 94px; display: none;" aria-hidden="true"><h2 id="instalaci-n">Instalación</h2>
+<ul>
+<li>Vamos a usar Ubuntu o alguna de sus variantes (Mint, Lubuntu, ...)</li>
+<li><p>Instalación de git:</p>
+<pre><code class="hljs sql">sudo apt-get <span class="hljs-keyword">update</span>
+
+sudo apt-<span class="hljs-keyword">get</span> <span class="hljs-keyword">install</span> git
+</code></pre></li>
+<li>En Windows, descargamos desde <a href="https://git-scm.com/download/win">aquí</a> y ejecutamos.</li>
+</ul>
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" hidden="" style="top: 55px; display: none;"><h2 id="configuraci-n-inicial">Configuración inicial</h2>
+<ul>
+<li><p>Configuración necesaria para cada commit que haga:</p>
+<pre><code class="hljs stylus">git config --global user<span class="hljs-selector-class">.name</span> <span class="hljs-string">"Your Name"</span>
+
+git config --global user<span class="hljs-selector-class">.email</span> <span class="hljs-string">"youremail@domain.com"</span>
+</code></pre></li>
+<li><p>Opcionalmente el editor (si no me gusta el que hay por defecto):</p>
+<pre><code class="hljs stylus">git config --global core<span class="hljs-selector-class">.editor</span> vi
+</code></pre></li>
+</ul>
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" hidden="" style="top: 0px; display: none;"><h2 id="niveles-de-configuraci-n-de-git">Niveles de configuración de git</h2>
+<p>Todo lo aquí contado puede verse con más detalle en el citado manual.</p>
+<ul>
+<li><p>Git tiene 3 niveles de configuración, cada nivel sobreescribe el anterior:</p>
+<ul>
+<li><p>Para todos los usuarios: <em>/etc/gitconfig</em></p>
+</li>
+<li><p>Para un usuario: <em>~/.gitconfig</em> (opción --global)</p>
+</li>
+<li><p>Para un repositorio: <em>.git/config</em></p>
+</li>
+</ul>
+</li>
+</ul>
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" hidden="" style="top: 350px; display: none;"><ul>
+<li>Para ver los parámetros configurados:</li>
+</ul>
+<pre><code class="hljs lua">git <span class="hljs-built_in">config</span> <span class="hljs-comment">--list</span>
+</code></pre><ul>
+<li>Viene bien tener una <a href="https://services.github.com/kit/downloads/github-git-cheat-sheet.pdf">chuleta de comandos de Git</a></li>
+</ul>
+</section></section><section data-charset="utf8" class="stack past" style="top: 0px; display: block;" data-previous-indexv="0" hidden="" aria-hidden="true"><section data-markdown="" data-markdown-parsed="true" class="" style="top: 123.5px; display: block;" aria-hidden="true"><h3 id="github-o-bitbucket-">GitHub (o Bitbucket)</h3>
+<ul>
+<li>Git puede usarse localmente y sin conectarse a ningún otro equipo.</li>
+<li>No obstante el uso de un servidor remoto:<ul>
+<li>Facilita la compartición de código</li>
+<li>Facilita el trabajo en equipo</li>
+<li>Aumenta la seguridad de nuestro código.</li>
+</ul>
+</li>
+</ul>
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" hidden="" style="top: 150.5px; display: none;"><h3 id="uso-de-github-o-bitbucket">Uso de GitHub o Bitbucket</h3>
+<ul>
+<li>Nos registramos en <a href="https://github.com/">Github</a> o <a href="https://bitbucket.org/">Bitbucket</a></li>
+<li>La comunicación entre un repositorio local y uno remoto puede ser mediante https o ssh.</li>
+<li>Por cuestiones prácticas consideramos mejor usar ssh. Veamos que configuración requiere.</li>
+</ul>
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" hidden="" style="top: 9.5px; display: none;"><h4 id="configuraci-n-de-ssh">Configuración de ssh</h4>
+<ul>
+<li>Evitaremos introducir usuario/contraseña en nuestra consola</li>
+<li>Accedemos a nuestra cuenta</li>
+<li>Vamos a los settings del <strong>USUARIO</strong> y asociamos una ssh-key</li>
+<li>Como creamos nuestra ssh-key:</li>
+</ul>
+<pre><code class="hljs ebnf"><span class="hljs-attribute">ssh-keygen</span>
+</code></pre><ul>
+<li>Copiaremos el contenido de  <code>~/.ssh/id\_rsa.pub</code>  a una nueva clave ssh en GitHub</li>
+</ul>
+</section></section><section data-charset="utf8" class="stack past" style="top: 0px; display: block;" data-previous-indexv="0" hidden="" aria-hidden="true"><section data-markdown="" data-markdown-parsed="true" class="" style="top: 34.5px; display: block;" aria-hidden="true"><h1 id="iniciar-repositorio">Iniciar repositorio</h1>
+<h2 id="para-empezar-">Para empezar.</h2>
+<ul>
+<li>Podemos iniciar el repositorio en GitHub o Bitbucket</li>
+<li>Podemos iniciarlo localmente.</li>
+<li>Supongamos que hemos iniciado nuestro proyecto y tomamos la segunda opción.</li>
+</ul>
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" hidden="" style="top: 170.5px; display: block;"><h2 id="objetivo">Objetivo</h2>
+<ul>
+<li>Tomar una carpeta como nuestro repositorio.</li>
+<li>Puede ser la carpeta de ejercicicios de programación.</li>
+<li>Puede ser la carpeta de un proyecto concreto.</li>
+</ul>
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" hidden="" style="top: 0px; display: none;"><h3 id="-qu-hago-localmente-">¿Qué hago localmente?</h3>
+<ul>
+<li>Voy a git bash y me muevo a mi directorio</li>
+<li>Tecleo lo siguiente:<ul>
+<li>git init</li>
+<li>echo "# Repositorio de ejemplo" &gt;&gt; README.md</li>
+<li>git add README.md</li>
+<li>git commit -m "Commit inicial"</li>
+</ul>
+</li>
+</ul>
+<h3 id="-qu-hago-en-github-bitbucket-">¿Qué hago en GitHub/Bitbucket?</h3>
+<ul>
+<li>Creo repositorio</li>
+<li>Sigo las instrucciones para subir mi repositorio local:</li>
+</ul>
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" hidden="" style="top: 350px; display: none;"><h2 id="opci-n-b-iniciar-el-repositorio-en-github-bitbucket">Opción B. Iniciar el repositorio en GitHub/Bitbucket</h2>
+<ul>
+<li>Al crear el repositorio se da la posibilidad de añadir un fichero README.md y crear un commit inicial.</li>
+<li>Por otra parte podemos partir de un repositorio nuestro o ajeno ya creado.</li>
+<li><p>En tal caso basta con hacer:</p>
+<pre><code class="hljs crmsh">  git <span class="hljs-keyword">clone</span> <span class="hljs-title">&lt;url</span> repo&gt;           <span class="hljs-comment">#habitual</span>
+  git <span class="hljs-keyword">clone</span> <span class="hljs-title">&lt;url</span> repo&gt; <span class="hljs-tag">&lt;carpeta&gt;</span> <span class="hljs-comment">#permite definir destino</span>
+</code></pre></li>
+</ul>
+</section></section><section data-charset="utf8" class="stack present" style="top: 0px; display: block;"><section data-markdown="" data-markdown-parsed="true" class="present" style="top: 106px; display: block;"><h2 id="uso-de-git-guardar-cambios">Uso de git: guardar cambios</h2>
+<p>Todas estas operaciones son locales:</p>
+<ul>
+<li>No es necesario salir a la red</li>
+<li>Velocidad muy alta de las operaciones</li>
+<li>Lee de tu base de datos local</li>
+<li>Calcula diferencias entre ficheros en local</li>
+<li>No limita el trabajo sin conexión</li>
+</ul>
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" hidden="" style="top: 25.5px; display: block;"><h3 id="ver-el-estado">Ver el estado</h3>
+<ul>
+<li>Consultar el estado del repositorio: <code>git status</code></li>
+<li>Nos dirá qué ficheros hay nuevos o modificados</li>
+<li>La rama que estamos, por defecto master</li>
+<li>Si estamos por detrás/delante del <em>origin</em>, el repositorio remoto</li>
+</ul>
+<p><img src="./reveal.js_files/git1.png" alt="git status" title="Logo Title Text 1"></p>
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" hidden="" style="top: 0px; display: block;"><h3 id="preparar-y-comprometer-cambios-">Preparar y comprometer cambios:</h3>
+<ul>
+<li>Con <code>git add ...</code> pasamos los ficheros modificados/nuevos a preparados.</li>
+<li>Tras hacer esto se guarda temporalmente los cambios realizados.</li>
+<li>Con `git commit -m "...." comprometemos los cambios.</li>
+</ul>
+<pre><code class="hljs dockerfile">git <span class="hljs-keyword">add</span><span class="bash"> .
+</span>git commit -m <span class="hljs-string">"comentario explicativo"</span>
+</code></pre><p><img src="./reveal.js_files/git2.png" alt="git status" title="Ejemplo de commit"></p>
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" hidden="" style="top: 350px; display: none;"><h4 id="ejemplos-de-git-add-">Ejemplos de  <code>git add</code></h4>
+<pre><code class="hljs dockerfile">git <span class="hljs-keyword">add</span><span class="bash"> &lt;nombre fichero&gt;    <span class="hljs-comment">#un sólo fichero</span>
+</span>git <span class="hljs-keyword">add</span><span class="bash"> img/logo.jpg
+</span>git <span class="hljs-keyword">add</span><span class="bash"> &lt;nombre directorio&gt; <span class="hljs-comment">#todo lo de un directorio</span>
+</span>git <span class="hljs-keyword">add</span><span class="bash"> .                   <span class="hljs-comment">#caso particular, todo, todo...</span>
+</span>git <span class="hljs-keyword">add</span><span class="bash"> public/js
+</span></code></pre></section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" hidden="" style="top: 350px; display: none;"><h4 id="recorrido-completo-">Recorrido completo:</h4>
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" hidden="" style="top: 350px; display: none;"><p><img src="./reveal.js_files/git03.png" alt="git status">
+<img src="./reveal.js_files/git04.png" alt="git status"></p>
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" hidden="" style="top: 350px; display: none;"><p><img src="./reveal.js_files/git05.png" alt="git status">
+<img src="./reveal.js_files/git06.png" alt="git status"></p>
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" hidden="" style="top: 350px; display: none;"><h4 id="marcha-atr-s-de-un-fichero-modificado">Marcha atrás de un fichero modificado</h4>
+<ul>
+<li>Hemos modificado un fichero y queremos recuperar la anterior versión:</li>
+</ul>
+<p><img src="./reveal.js_files/git03.png" alt="git status"></p>
+<pre><code class="hljs stylus">git checkout &lt;nombrefichero&gt;
+git checkout casa<span class="hljs-selector-class">.md</span>
+git checkout &lt;nombre directorio&gt;
+git checkout .
+</code></pre></section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" hidden="" style="top: 350px; display: none;"><h4 id="marcha-atr-s-de-un-fichero-preparado">Marcha atrás de un fichero preparado</h4>
+<ul>
+<li>Queremos sacar del estado preparado después de <code>git add</code>:</li>
+</ul>
+<p><img src="./reveal.js_files/git04.png" alt="git status"></p>
+<pre><code class="hljs sql">git <span class="hljs-keyword">reset</span> <span class="hljs-keyword">HEAD</span> &lt;nombrefichero&gt;
+git <span class="hljs-keyword">reset</span> <span class="hljs-keyword">HEAD</span> casa.md
+git <span class="hljs-keyword">reset</span> <span class="hljs-keyword">HEAD</span> &lt;nombre directorio&gt;
+git <span class="hljs-keyword">reset</span> <span class="hljs-keyword">HEAD</span> .
+</code></pre></section></section><section data-charset="utf8" hidden="" aria-hidden="true" class="stack future" style="top: 0px; display: block;"><section data-markdown="" data-markdown-parsed="true" style="top: 0px; display: block;"><h3 id="guardar-en-remoto-">Guardar en remoto.</h3>
+<ul>
+<li>En local por defecto trabajamos en la rama master.</li>
+<li>Si hay un remoto, además se guarda oculta la rama origin/master.</li>
+<li>Sean los equipos A y B, y mismo repositorio:</li>
+</ul>
+<p><img src="./reveal.js_files/gitremote01.png" alt=""></p>
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 106px; display: block;"><h4 id="commit-push-equipo-a">Commit + push, equipo A</h4>
+<p><img src="./reveal.js_files/gitremote02.png" alt="">
+<img src="./reveal.js_files/gitremote03.png" alt=""></p>
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h4 id="git-push">Git push</h4>
+<ul>
+<li>Push es el comando usado para subir código a <em>origin</em>, es decir
+el repositorio remoto.</li>
+<li>Origin es el nombre usado por defecto para la copia remota.</li>
+<li>Ejemplos de uso</li>
+</ul>
+<pre><code class="hljs armasm"><span class="hljs-symbol">git</span> <span class="hljs-keyword">push </span>                       # <span class="hljs-keyword">sube </span>rama <span class="hljs-string">"preferida"</span>
+
+# comando usado en la <span class="hljs-keyword">subida </span>inicial tras git init. Lo explicaremos
+<span class="hljs-symbol">git</span> <span class="hljs-keyword">push </span>-u origin master
+</code></pre></section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h4 id="fetch-pull-equipo-b">Fetch + pull, equipo B</h4>
+<ul>
+<li>Se recomienda hacer git status entre ambos.</li>
+<li>En realidad pull es la suma de dos comandos: fetch + merge</li>
+</ul>
+<p><img src="./reveal.js_files/gitremote04.png" alt="">
+<img src="./reveal.js_files/gitremote05.png" alt=""></p>
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h3 id="-c-mo-usar-dos-equipos-aula-y-casa-">¿Cómo usar dos equipos: aula y casa?</h3>
+<ul>
+<li>Al empezar a trabajar, ejecutar<pre><code class="hljs fortran">git fetch
+git <span class="hljs-keyword">status</span>
+git pull
+</code></pre></li>
+<li>Al acabar la sesión de trabajo<pre><code class="hljs sql">git <span class="hljs-keyword">commit</span> 
+git <span class="hljs-keyword">status</span>
+git push
+</code></pre></li>
+</ul>
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h3 id="fork-pull-request">Fork &amp; Pull Request</h3>
+<h4 id="fork">Fork</h4>
+<ul>
+<li>Clon de un repositorio ajeno en nuestro espacio</li>
+<li>Es una funcionalidad de GitHub/Bitbucket</li>
+<li>P.ej. el repositorio repo1702</li>
+<li>El clon es de mi propiedad y lo puedo clonar 
+y editar<h4 id="pull-request">Pull Request</h4>
+</li>
+<li>Es una solicitud de que el dueño original 
+incorpore mis cambios.</li>
+<li>Se hace en la interfaz web</li>
+<li>El dueño original lo acepta o no...</li>
+</ul>
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h3 id="commit-amend">Commit --amend</h3>
+<ul>
+<li>Consiste en rectificar el commit anterior</li>
+<li>Los cambios añadidos sobreescriben el último
+commit</li>
+<li>OJO! Puede ser peligroso.</li>
+</ul>
+</section></section><section data-charset="utf8" hidden="" aria-hidden="true" class="stack future" style="top: 0px; display: block;"><section data-markdown="" data-markdown-parsed="true" style="top: 60px; display: block;"><h2 id="ramas-branch-">Ramas (branch)</h2>
+<ul>
+<li>Por defecto trabajamos en la rama <code>master</code></li>
+<li>Las ramas se usan fundamentalmente para separar tareas sin
+modificar la rama <code>master</code></li>
+<li>Una vez terminada la tarea se funde (merge) la rama de tarea 
+con la rama master.</li>
+<li>Esto permite cambiar de rama/tarea y dejarla incompleta sin
+dejar el proyecto en versiones incompletas o inestables.</li>
+</ul>
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h3 id="comandos-con-ramas">Comandos con ramas</h3>
+<pre><code class="hljs dts">git branch              <span class="hljs-comment">// lista de ramas</span>
+git branch  <span class="hljs-params">&lt;rama&gt;</span>      <span class="hljs-comment">// crear rama</span>
+git checkout <span class="hljs-params">&lt;rama&gt;</span>     <span class="hljs-comment">// cambiar de rama</span>
+git checkout -b <span class="hljs-params">&lt;rama&gt;</span>  <span class="hljs-comment">// crear y cambiar rama 2 en 1</span>
+git branch -d <span class="hljs-params">&lt;rama&gt;</span>    <span class="hljs-comment">// borrar rama</span>
+</code></pre><h3 id="fundir-ramas">Fundir ramas</h3>
+<pre><code class="hljs crmsh">git checkout <span class="hljs-keyword">master</span>     <span class="hljs-title">// nos</span> ponemos en rama <span class="hljs-keyword">master</span>
+<span class="hljs-title">git</span> merge <span class="hljs-tag">&lt;rama&gt;</span>        //fundimos con la rama deseada
+</code></pre></section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h3 id="revisemos-el-uso-de-push">Revisemos el uso de push</h3>
+<ul>
+<li>Push sube código a un repositorio remoto</li>
+<li>Origin es el alias usado pra el repositorio remoto</li>
+<li>Podríamos usar más de un remoto</li>
+<li>Master es el nombre de la rama por defecto<pre><code class="hljs armasm"><span class="hljs-symbol">git</span> <span class="hljs-keyword">push </span>                       # <span class="hljs-keyword">sube </span>rama <span class="hljs-string">"preferida"</span>
+<span class="hljs-symbol">git</span> <span class="hljs-keyword">push </span>&lt;repo remoto&gt; &lt;rama&gt;   # <span class="hljs-keyword">sube </span>una rama concreta
+<span class="hljs-symbol">git</span> <span class="hljs-keyword">push </span>origin dev             # Ej. <span class="hljs-keyword">sube </span>rama dev
+<span class="hljs-symbol">git</span> <span class="hljs-keyword">push </span>-u &lt;repo remoto&gt; &lt;rama&gt;# <span class="hljs-keyword">sube </span>y predetermina rama
+<span class="hljs-symbol">git</span> <span class="hljs-keyword">push </span>-u origin master       # Ej. <span class="hljs-keyword">sube </span>y pred. master
+</code></pre></li>
+</ul>
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h3 id="ramas-remotas">Ramas remotas</h3>
+<ul>
+<li>Si queremos compartir una rama de trabajo</li>
+<li>Subir una rama:<pre><code class="hljs maxima">git <span class="hljs-built_in">push</span> <span class="hljs-built_in">origin</span> &lt;rama&gt;
+</code></pre></li>
+<li>Bajar la rama tiene dos partes:<pre><code class="hljs stylus">git fetch  <span class="hljs-selector-id">#crea</span> la rama oculta origin/&lt;rama&gt;
+</code></pre></li>
+<li>Las siguientes ordenes son idénticas.</li>
+<li>Ambas crear la rama local <rama> asociada a origin/<rama> </rama></rama></li>
+<li>La primera nos permite alterar el nombre <rama>.<pre><code class="hljs xml">git checkout -b <span class="hljs-tag">&lt;<span class="hljs-name">rama</span>&gt;</span> origin/<span class="hljs-tag">&lt;<span class="hljs-name">rama</span>&gt;</span>
+git checkout --track origin/<span class="hljs-tag">&lt;<span class="hljs-name">rama</span>&gt;</span>
+</code></pre></rama></li>
+</ul>
+</section></section><section data-charset="utf8" hidden="" aria-hidden="true" class="stack future" style="top: 350px; display: none;"><section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;"><h2 id="revisando-c-digo">Revisando código</h2>
+<ul>
+<li>Los comandos básicos son log y diff</li>
+<li><code>git log</code> nos muestra información histórica</li>
+<li><code>git diff</code> compara el contenido de los ficheros</li>
+</ul>
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h3 id="log">log</h3>
+<ul>
+<li>Log soporta una gran cantidad de parámetros:</li>
+<li>Veámoslo con ejemplos:<pre><code class="hljs stata">git <span class="hljs-keyword">log</span>             #uso base
+git <span class="hljs-keyword">log</span> -&lt;<span class="hljs-keyword">n</span>&gt;        #<span class="hljs-keyword">log</span> <span class="hljs-keyword">de</span> los últimos <span class="hljs-keyword">n</span> commits
+git <span class="hljs-keyword">log</span> --oneline -5 #lista <span class="hljs-keyword">de</span> commits breve
+git <span class="hljs-keyword">log</span> --follow [<span class="hljs-keyword">file</span>] #lista <span class="hljs-keyword">de</span> commit con cambios para <span class="hljs-string">"file"</span>
+git show &lt;commit&gt;  # informació<span class="hljs-keyword">n</span> completa <span class="hljs-keyword">de</span> un commit concreto
+</code></pre></li>
+</ul>
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h3 id="diff">diff</h3>
+<ul>
+<li>Git diff sirve para ver las diferencias entre el estado actual y otro:</li>
+</ul>
+<pre><code class="hljs mipsasm">git <span class="hljs-keyword">diff </span>  <span class="hljs-comment"># diferencia entre estado actual y el preparado o comprometido</span>
+git <span class="hljs-keyword">diff </span>--<span class="hljs-keyword">cached </span><span class="hljs-comment">#diferencia entre el preparado y el último commit</span>
+git <span class="hljs-keyword">diff </span>--stat <span class="hljs-comment">#idem al primero pero con información resumida de cambios</span>
+</code></pre></section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h3 id="diff-desde-un-commit-concreto">diff desde un commit concreto</h3>
+<ul>
+<li>Podemos hacer diff sobre todo el repo o sobre un fichero.</li>
+<li>Podemos referirnos a un commit por su hash o contando hacia atrás desde el HEAD o desde una rama.<pre><code class="hljs mipsasm">git <span class="hljs-keyword">diff </span>&lt;commit&gt; <span class="hljs-comment"># cambios desde un commit hasta la actualidad</span>
+git <span class="hljs-keyword">diff </span>&lt;commit&gt; &lt;file&gt;<span class="hljs-comment"># idem fichero concreto</span>
+git <span class="hljs-keyword">diff </span>master~<span class="hljs-number">2</span> README.md <span class="hljs-comment">#Cambios en los dos últimos commit de master</span>
+git <span class="hljs-keyword">diff </span>HEAD~<span class="hljs-number">2</span> README.md <span class="hljs-comment">#Cambios en los dos últimos commit HEAD</span>
+git <span class="hljs-keyword">diff </span>cd598e4 README.md <span class="hljs-comment">#Cambios desde un commit concreto por hash</span>
+</code></pre></li>
+</ul>
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h3 id="diff-entre-dos-commit">diff entre dos commit</h3>
+<pre><code class="hljs stylus">git diff &lt;commit&gt;:&lt;file&gt;  &lt;commit2&gt;:&lt;file&gt; <span class="hljs-selector-id">#diff</span> de un fichero entre dos commits
+git diff cd598e4:README<span class="hljs-selector-class">.md</span>  <span class="hljs-number">31422</span>ac:README<span class="hljs-selector-class">.md</span>
+git diff master~<span class="hljs-number">20</span>:README<span class="hljs-selector-class">.md</span>  master~<span class="hljs-number">1</span>:README<span class="hljs-selector-class">.md</span>
+</code></pre></section></section><section data-charset="utf8" data-markdown="" data-markdown-parsed="true" hidden="" aria-hidden="true" class="future" style="top: 350px; display: none;"><h2 id="gitignorando-cosas-gitignore">GitIgnorando cosas: .gitignore</h2>
+<ul>
+<li>Podemos decir a git que no tenga en consideración algunos ficheros/directorios</li>
+<li>Para hacerlo debemos crear un fichero <code>.gitignore</code> en el directorio raiz</li>
+<li>Para ver algunos ejemplos puedes visitar <a href="https://www.atlassian.com/git/tutorials/gitignorenuevo">https://www.atlassian.com/git/tutorials/gitignorenuevo</a></li>
+</ul>
+</section><section data-charset="utf8" data-markdown="" data-markdown-parsed="true" hidden="" aria-hidden="true" class="future" style="top: 350px; display: none;"><h2 id="etiquetas-tags-">Etiquetas (tags)</h2>
+<p><strong>pendiente</strong></p>
+</section>
+
+			</div>        
+		<div class="backgrounds"><div class="slide-background past" data-loaded="true" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background stack past" data-loaded="true" style="display: none;"><div class="slide-background-content"></div><div class="slide-background present" data-loaded="true" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div></div><div class="slide-background stack past" data-loaded="true" style="display: none;"><div class="slide-background-content"></div><div class="slide-background present" data-loaded="true" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div></div><div class="slide-background stack past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div><div class="slide-background present" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background stack past" style="display: block;" data-loaded="true"><div class="slide-background-content"></div><div class="slide-background present" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div></div><div class="slide-background stack past" style="display: block;" data-loaded="true"><div class="slide-background-content"></div><div class="slide-background present" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background stack present" style="display: block;" data-loaded="true"><div class="slide-background-content"></div><div class="slide-background present" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" style="display: block;" data-loaded="true"><div class="slide-background-content"></div><div class="slide-background present" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" style="display: block;" data-loaded="true"><div class="slide-background-content"></div><div class="slide-background present" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background-content"></div><div class="slide-background present" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="progress" style="display: block;"><span style="width: 502.773px;"></span></div><aside class="controls" data-controls-layout="bottom-right" data-controls-back-arrows="faded" style="display: block;"><button class="navigate-left enabled" aria-label="previous slide"><div class="controls-arrow"></div></button><button class="navigate-right highlight enabled" aria-label="next slide"><div class="controls-arrow"></div></button><button class="navigate-up" aria-label="above slide" disabled="disabled"><div class="controls-arrow"></div></button><button class="navigate-down highlight enabled" aria-label="below slide"><div class="controls-arrow"></div></button></aside><div class="slide-number" style="display: none;"></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"><button class="resume-button">Resume presentation</button></div><div id="aria-status-div" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);">Uso de git: guardar cambios
+Todas estas operaciones son locales:
+
+No es necesario salir a la red
+Velocidad muy alta de las operaciones
+Lee de tu base de datos local
+Calcula diferencias entre ficheros en local
+No limita el trabajo sin conexión
+
+</div></div>
+
+		<script src="./reveal.js_files/head.min.js.descarga"></script>
+		<script src="./reveal.js_files/reveal.js.descarga"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	
+
+</body></html>
